@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- /src/main/resources/spring-db.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd
+   http://www.springframework.org/schema/aop
+   http://www.springframework.org/schema/aop/spring-aop.xsd">
+<!-- db 연결 객체 생성 : Connection Pool로 설정.
+    미리 만들어진 Connection 객체들의 저장 공간  -->  
+  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+        destroy-method="close">
+    <property name="driverClass">
+          <value>org.mariadb.jdbc.Driver</value></property>  
+    <property name="jdbcUrl">
+          <value>jdbc:mariadb://localhost:3307/classdb</value></property>  
+    <property name="user"><value>scott</value></property>  
+    <property name="password"><value>1234</value></property>
+    <property name="maxPoolSize"><value>20</value></property>
+    <property name="minPoolSize"><value>3</value></property>
+    <property name="initialPoolSize"><value>5</value></property>
+    <property name="acquireIncrement"><value>5</value></property>      
+  </bean>
+</beans>

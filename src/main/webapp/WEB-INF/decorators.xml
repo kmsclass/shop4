@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--  /WEB-INF/decorators.xml -->
+<decorators defaultdir="/layout">
+   <decorator name="main" page="layout.jsp">
+      <pattern>*.shop</pattern>
+   </decorator>
+   <excludes>
+      <pattern>/user/idsearch*</pattern>
+      <pattern>/user/pwsearch*</pattern>
+      <pattern>/board/imgupload*</pattern>
+   </excludes>
+</decorators>
